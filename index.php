@@ -12,6 +12,9 @@
 <body align="center">
 <div class="container">
 
+<input type="text" id="x" value="4000" placeholder="Masukkan Nilai X">
+<input type="text" id="y" value="300" placeholder="Masukkan Nilai y">
+
 
     <button type="submit" id="hitungTotal" onClick="hitung();">Hitung</button>
 

@@ -7,8 +7,8 @@ var maxPersediaan = 600;
 var minProduksi = 2000;
 var maxProduksi = 7000;
 
-var x = 4000;
-var y = 300;
+// var x = 4000;
+// var y = 300;
 
 var totalPerhitunganPermintaanBesar = 0;
 var totalPerhitunganPermintaanKecil = 0;
@@ -25,9 +25,12 @@ var valueRuleKeempat = 0;
 
 var hasil = 0;
 
-function hitung(){
-    
-    if(cekRangeInputX(minPermintaan, maxPermintaan, x)&&cekRangeInputY(minPersediaan, maxPersediaan, y)){
+function hitung() {
+
+    var x = document.getElementById('x').value;
+    var y = document.getElementById('y').value;
+
+    if (cekRangeInputX(minPermintaan, maxPermintaan, x) && cekRangeInputY(minPersediaan, maxPersediaan, y)) {
 
         var hasilKecilPermintaan = hitungKecilPermintaan(x, minPermintaan, maxPermintaan);
         var hasilBesarPermintaan = hitungBesarPermintaan(x, minPermintaan, maxPermintaan);
@@ -47,49 +50,49 @@ function hitung(){
     } else {
         alert("Iam Sorry But.");
     }
-    
+
 }
 
-function hitungBesarPermintaan(input, minPermintaan, maxPermintaan){
+function hitungBesarPermintaan(input, minPermintaan, maxPermintaan) {
 
     totalPerhitunganPermintaanBesar = (input - minPermintaan) / (maxPermintaan - minPermintaan);
 
     return totalPerhitunganPermintaanBesar;
 }
 
-function hitungKecilPermintaan(input, minPermintaan, maxPermintaan){
+function hitungKecilPermintaan(input, minPermintaan, maxPermintaan) {
 
     totalPerhitunganPermintaanKecil = (maxPermintaan - input) / (maxPermintaan - minPermintaan);
 
     return totalPerhitunganPermintaanKecil
 }
 
-function hitungPersediaanTerbanyak(input, minPersediaan, maxPersediaan){
+function hitungPersediaanTerbanyak(input, minPersediaan, maxPersediaan) {
 
     totalPerhitunganPersediaanterbanyak = (input - minPersediaan) / (maxPersediaan - minPersediaan);
 
     return totalPerhitunganPersediaanterbanyak;
 }
 
-function hitungPersediaanTerkecil(input, minPersediaan, maxPersediaan){
+function hitungPersediaanTerkecil(input, minPersediaan, maxPersediaan) {
 
     totalPerhitunganPersediaanTerkecil = (maxPersediaan - input) / (maxPersediaan - minPersediaan);
 
     return totalPerhitunganPersediaanTerkecil;
 }
 
-function hitungMaxProduksi(input, minProduksi, maxProduksi, getValueProduksi){
+function hitungMaxProduksi(input, minProduksi, maxProduksi, getValueProduksi) {
 
-    totalMaxProduksi = ((input - minProduksi) / (maxProduksi - minProduksi))*getValueProduksi;
+    totalMaxProduksi = ((input - minProduksi) / (maxProduksi - minProduksi)) * getValueProduksi;
 
     totalMaxProduksi = maxProduksi - totalMaxProduksi;
 
     return totalMaxProduksi;
 }
 
-function hitungMinProduksi(input, minProduksi, maxProduksi, getValueProduksi){
+function hitungMinProduksi(input, minProduksi, maxProduksi, getValueProduksi) {
 
-    totalMinProduksi = ((maxProduksi - input) / (maxProduksi - minProduksi))*getValueProduksi;
+    totalMinProduksi = ((maxProduksi - input) / (maxProduksi - minProduksi)) * getValueProduksi;
 
     totalMinProduksi = maxProduksi - totalMinProduksi;
 
@@ -97,7 +100,7 @@ function hitungMinProduksi(input, minProduksi, maxProduksi, getValueProduksi){
 }
 
 
-function rulePertama(permintaanTurun, persediaanBanyak, maxProduksi, totalMaxProduksi){
+function rulePertama(permintaanTurun, persediaanBanyak, maxProduksi, totalMaxProduksi) {
 
     valueRulePertama = Math.max(permintaanTurun, persediaanBanyak);
 
@@ -106,7 +109,7 @@ function rulePertama(permintaanTurun, persediaanBanyak, maxProduksi, totalMaxPro
     return totalRulePertama;
 }
 
-function ruleKedua(permintaanTurun, persediaanSedikit, maxProduksi, totalMaxProduksi){
+function ruleKedua(permintaanTurun, persediaanSedikit, maxProduksi, totalMaxProduksi) {
 
     valueRuleKedua = Math.max(permintaanTurun, persediaanSedikit);
 
@@ -115,7 +118,7 @@ function ruleKedua(permintaanTurun, persediaanSedikit, maxProduksi, totalMaxProd
     return totalRuleKedua;
 }
 
-function ruleKetiga(permintaanNaik, persediaanBanyak, maxProduksi, totalMaxProduksi){
+function ruleKetiga(permintaanNaik, persediaanBanyak, maxProduksi, totalMaxProduksi) {
 
     valueRuleKetiga = Math.max(permintaanNaik, persediaanBanyak);
 
@@ -124,7 +127,7 @@ function ruleKetiga(permintaanNaik, persediaanBanyak, maxProduksi, totalMaxProdu
     return totalRuleKetiga;
 }
 
-function ruleKeempat(permintaanNaik, persediaanSedikit, maxProduksi, totalMaxProduksi){
+function ruleKeempat(permintaanNaik, persediaanSedikit, maxProduksi, totalMaxProduksi) {
 
     valueRuleKeempat = Math.max(permintaanNaik, persediaanSedikit);
 
@@ -133,9 +136,9 @@ function ruleKeempat(permintaanNaik, persediaanSedikit, maxProduksi, totalMaxPro
     return totalRuleKeempat;
 }
 
-function hitungPrediksi(valueRulePertama, valueRuleKedua, valueRuleKetiga, valueRuleKeempat, totalRulePertama, totalRuleKedua, totalRuleKetiga, totalRuleKeempat){
+function hitungPrediksi(valueRulePertama, valueRuleKedua, valueRuleKetiga, valueRuleKeempat, totalRulePertama, totalRuleKedua, totalRuleKetiga, totalRuleKeempat) {
 
-    var hasilPertama = (valueRulePertama * totalRulePertama) + (valueRuleKedua * totalRuleKedua) + (valueRuleKetiga * totalRuleKetiga) +(valueRuleKeempat * totalRuleKeempat);
+    var hasilPertama = (valueRulePertama * totalRulePertama) + (valueRuleKedua * totalRuleKedua) + (valueRuleKetiga * totalRuleKetiga) + (valueRuleKeempat * totalRuleKeempat);
     var hasilKedua = valueRulePertama + valueRuleKedua + valueRuleKetiga + valueRuleKeempat;
 
     var totalHitungPrediksi = hasilPertama / hasilKedua;
@@ -143,18 +146,18 @@ function hitungPrediksi(valueRulePertama, valueRuleKedua, valueRuleKetiga, value
     return totalHitungPrediksi;
 }
 
-function cekRangeInputX(minPermintaan, maxPermintaan, inputanX){
+function cekRangeInputX(minPermintaan, maxPermintaan, inputanX) {
 
-    if(inputanX >= minPermintaan &&  inputanX <=maxPermintaan){
+    if (inputanX >= minPermintaan && inputanX <= maxPermintaan) {
         return true;
     } else {
         return false;
     }
 }
 
-function cekRangeInputY( minPersediaan, maxPersediaan, inputanY){
+function cekRangeInputY(minPersediaan, maxPersediaan, inputanY) {
 
-    if(inputanY >= minPersediaan &&  inputanY <= maxPersediaan){
+    if (inputanY >= minPersediaan && inputanY <= maxPersediaan) {
         return true;
     } else {
         return false;
