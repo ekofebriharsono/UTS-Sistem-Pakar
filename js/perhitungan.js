@@ -45,8 +45,19 @@ function hitung() {
         var totalRuleKeempatBanget = ruleKeempat(hasilBesarPermintaan, hasilPersediaanTerkecil, maxProduksi, hasilMaxProduksi);
 
         var hitungTotalPrediksiBanget = hitungPrediksi(valueRulePertama, valueRuleKedua, valueRuleKetiga, valueRuleKeempat, totalRulePertamaBanget, totalRuleKeduaBanget, totalRuleKetigaBanget, totalRuleKeempatBanget);
-
-        alert(hitungTotalPrediksiBanget);
+        
+        document.getElementById('hasilKecilPermintaan').innerHTML = "Hasil Kecil Permintaan =" + hasilKecilPermintaan;
+        document.getElementById('hasilBesarPermintaan').innerHTML = "Hasil Besar Permintaan =" + hasilBesarPermintaan;
+        document.getElementById('hasilPersediaanTerbanyak').innerHTML = "Hasil Persediaan Terbanyak =" + hasilPersediaanTerbanyak;
+        document.getElementById('hasilPersediaanTerkecil').innerHTML = "Hasil Persediaan Terkecil =" + hasilPersediaanTerkecil;
+        document.getElementById('hasilMaxProduksi').innerHTML = "Hasil Max Produksi =" + hasilMaxProduksi;
+        document.getElementById('totalRulePertamaBanget').innerHTML = "Hasil Rule Pertama =" + totalRulePertamaBanget;
+        document.getElementById('totalRuleKeduaBanget').innerHTML = "Hasil Rule Kedua =" + totalRuleKeduaBanget;
+        document.getElementById('totalRuleKetigaBanget').innerHTML = "Hasil Rule Ketiga =" + totalRuleKetigaBanget;
+        document.getElementById('totalRuleKeempatBanget').innerHTML = "Hasil Rule Keempat =" + totalRuleKeempatBanget;
+        document.getElementById('hitungTotalPrediksiBanget').innerHTML = "Hasil Total Prediksi =" + hitungTotalPrediksiBanget;
+        
+       // alert(hitungTotalPrediksiBanget);
     } else {
         alert("Iam Sorry But.");
     }

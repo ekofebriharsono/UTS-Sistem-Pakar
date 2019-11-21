@@ -19,6 +19,20 @@
 
         <button type="submit" id="hitungTotal" onClick="hitung();">Hitung</button>
 
+        <p id="hasilKecilPermintaan"></p>
+        <p id="hasilBesarPermintaan"></p>
+        <p id="hasilPersediaanTerbanyak"></p>
+        <p id="hasilPersediaanTerkecil"></p>
+        <p id="hasilMaxProduksi"></p>
+        <p id="totalRulePertamaBanget"></p>
+        <p id="totalRuleKeduaBanget"></p>
+        <p id="totalRuleKetigaBanget"></p>
+        <p id="totalRuleKeempatBanget"></p>
+        <p id="hitungTotalPrediksiBanget"></p>
+
+
+
+
         <div style="width:75%;">
             <canvas id="canvas"></canvas>
         </div>
